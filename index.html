@@ -1,780 +1,381 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>零界演化 | SingularityX Evolution</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', 'Helvetica Neue', Arial, sans-serif;
-            line-height: 1.6;
-            color: #000;
-            background: #ffffff;
-            overflow-x: hidden;
-        }
-
-        /* Header - 极简风格 */
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1000;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(20px);
-            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            max-width: 1400px;
-            margin: 0 auto;
-        }
-
-        .logo {
-            font-size: 24px;
-            font-weight: 600;
-            color: #000;
-            text-decoration: none;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 40px;
-        }
-
-        .nav-links a {
-            color: #000;
-            text-decoration: none;
-            font-weight: 400;
-            font-size: 16px;
-            transition: opacity 0.3s ease;
-        }
-
-        .nav-links a:hover {
-            opacity: 0.6;
-        }
-
-        /* Hero Section - XEO风格 */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 120px 40px 80px;
-            position: relative;
-            background: linear-gradient(180deg, #ffffff 0%, #f8f9fa 100%);
-        }
-
-        .hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .hero-title {
-            font-size: clamp(48px, 8vw, 96px);
-            font-weight: 300;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
-            line-height: 0.9;
-            color: #000;
-        }
-
-        .hero-subtitle {
-            font-size: clamp(18px, 3vw, 28px);
-            font-weight: 600;
-            margin-bottom: 30px;
-            color: #666;
-            letter-spacing: -0.5px;
-        }
-
-        .hero-description {
-            font-size: 18px;
-            color: #888;
-            margin-bottom: 60px;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            line-height: 1.6;
-        }
-
-        .learn-more-btn {
-            display: inline-block;
-            padding: 16px 32px;
-            background: #000;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 100px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .learn-more-btn:hover {
-            background: #333;
-            transform: translateY(-2px);
-        }
-
-        /* Product Cards - XEO风格 */
-        .products-section {
-            padding: 100px 40px;
-            background: #fff;
-        }
-
-        .products-grid {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            min-height: 100vh;
-        }
-
-        .product-card {
-            position: relative;
-            overflow: hidden;
-            background: #f8f9fa;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 80px 60px;
-            transition: all 0.6s ease;
-        }
-
-        .product-card:nth-child(odd) {
-            background: #000;
-            color: #fff;
-        }
-
-        .product-card:nth-child(even) {
-            background: #fff;
-            color: #000;
-        }
-
-        .product-title {
-            font-size: 36px;
-            font-weight: 300;
-            margin-bottom: 20px;
-            letter-spacing: -1px;
-        }
-
-        .product-subtitle {
-            font-size: 16px;
-            margin-bottom: 30px;
-            opacity: 0.7;
-            font-weight: 400;
-        }
-
-        .product-description {
-            font-size: 14px;
-            opacity: 0.6;
-            max-width: 300px;
-            margin-bottom: 40px;
-            line-height: 1.6;
-        }
-
-        .product-link {
-            color: inherit;
-            text-decoration: none;
-            border-bottom: 1px solid currentColor;
-            padding-bottom: 2px;
-            transition: opacity 0.3s ease;
-        }
-
-        .product-link:hover {
-            opacity: 0.6;
-        }
-
-        /* About Section */
-        .about-section {
-            padding: 120px 40px;
-            background: #f8f9fa;
-        }
-
-        .about-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .section-title {
-            font-size: 48px;
-            font-weight: 300;
-            margin-bottom: 60px;
-            letter-spacing: -1px;
-            color: #000;
-        }
-
-        .about-text {
-            font-size: 18px;
-            color: #666;
-            line-height: 1.8;
-            margin-bottom: 80px;
-        }
-
-        /* Features Grid */
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 60px;
-            margin-top: 80px;
-        }
-
-        .feature-item {
-            text-align: left;
-        }
-
-        .feature-title {
-            font-size: 24px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #000;
-        }
-
-        .feature-description {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Business Section */
-        .business-section {
-            padding: 120px 40px;
-            background: #000;
-            color: #fff;
-        }
-
-        .business-content {
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .business-section .section-title {
-            color: #fff;
-        }
-
-        .business-section .about-text {
-            color: #ccc;
-        }
-
-        .highlights-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 60px;
-            margin-top: 80px;
-        }
-
-        .highlight-item {
-            text-align: left;
-            padding: 40px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-        }
-
-        .highlight-title {
-            font-size: 20px;
-            font-weight: 600;
-            margin-bottom: 20px;
-            color: #fff;
-        }
-
-        .highlight-description {
-            font-size: 16px;
-            color: #ccc;
-            line-height: 1.6;
-        }
-
-        /* Culture Section */
-        .culture-section {
-            padding: 120px 40px;
-            background: #fff;
-        }
-
-        .culture-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0;
-            max-width: 1400px;
-            margin: 0 auto;
-            margin-top: 80px;
-        }
-
-        .culture-item {
-            padding: 80px 60px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        .culture-item:nth-child(odd) {
-            background: #f8f9fa;
-        }
-
-        .culture-item:nth-child(even) {
-            background: #000;
-            color: #fff;
-        }
-
-        .culture-title {
-            font-size: 28px;
-            font-weight: 600;
-            margin-bottom: 30px;
-        }
-
-        .culture-description {
-            font-size: 16px;
-            line-height: 1.6;
-            opacity: 0.8;
-        }
-
-        /* Jobs Section */
-        .jobs-section {
-            padding: 120px 40px;
-            background: #f8f9fa;
-        }
-
-        .jobs-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .jobs-grid {
-            display: grid;
-            gap: 40px;
-            margin-top: 80px;
-        }
-
-        .job-card {
-            background: #fff;
-            padding: 40px;
-            border-radius: 20px;
-            border: 1px solid #e9ecef;
-            transition: all 0.3s ease;
-        }
-
-        .job-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-
-        .job-title {
-            font-size: 22px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #000;
-        }
-
-        .job-subtitle {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .job-responsibility {
-            font-size: 16px;
-            color: #333;
-            margin-bottom: 15px;
-            line-height: 1.6;
-        }
-
-        .job-requirement {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-        }
-
-        /* Benefits Section */
-        .benefits-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-top: 60px;
-        }
-
-        .benefit-item {
-            text-align: center;
-            padding: 30px 20px;
-            background: #fff;
-            border-radius: 15px;
-            border: 1px solid #e9ecef;
-        }
-
-        .benefit-title {
-            font-size: 18px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #000;
-        }
-
-        .benefit-description {
-            font-size: 14px;
-            color: #666;
-        }
-
-        /* Contact Section */
-        .contact-section {
-            padding: 120px 40px;
-            background: #000;
-            color: #fff;
-            text-align: center;
-        }
-
-        .contact-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .contact-section .section-title {
-            color: #fff;
-        }
-
-        .contact-email {
-            font-size: 24px;
-            color: #fff;
-            text-decoration: none;
-            border-bottom: 1px solid #fff;
-            padding-bottom: 5px;
-            transition: opacity 0.3s ease;
-            display: inline-block;
-            margin-top: 40px;
-        }
-
-        .contact-email:hover {
-            opacity: 0.6;
-        }
-
-        /* Footer */
-        footer {
-            background: #f8f9fa;
-            padding: 40px;
-            text-align: center;
-            color: #666;
-            font-size: 14px;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav {
-                padding: 20px;
-            }
-            
-            .nav-links {
-                display: none;
-            }
-            
-            .hero {
-                padding: 100px 20px 60px;
-            }
-            
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .culture-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .highlights-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .product-card {
-                padding: 60px 40px;
-            }
-            
-            .culture-item {
-                padding: 60px 40px;
-            }
-            
-            .about-section,
-            .business-section,
-            .culture-section,
-            .jobs-section,
-            .contact-section {
-                padding: 80px 20px;
-            }
-        }
-
-        /* Smooth animations */
-        .fade-in {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.8s ease;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>零界演化 | SingularityX Evolution</title>
+  <style>
+    /* --------- Reset & Base --------- */
+    *,*::before,*::after{box-sizing:border-box}
+    :root{
+      --bg:#000;           /* 主黑 */
+      --fg:#fff;           /* 主白 */
+      --muted:#9aa0a6;     /* 次级文字 */
+      --line:rgba(255,255,255,.12);
+      --ink:#0f0f10;       /* 深黑 */
+      --paper:#f7f7f8;     /* 浅灰白 */
+      --accent:#ffffff;    /* 仅用于描边/hover */
+      --maxw:1400px;
+    }
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","SF Pro Display","Helvetica Neue",Arial,sans-serif;
+      color:var(--fg);
+      background:var(--bg);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* --------- Header (极简固定) --------- */
+    header{
+      position:fixed;top:0;left:0;right:0;z-index:20;
+      backdrop-filter:blur(14px);
+      background:rgba(0,0,0,.55);
+      border-bottom:1px solid var(--line);
+    }
+    nav{
+      display:flex;align-items:center;justify-content:space-between;
+      gap:24px;padding:18px 28px;margin:0 auto;max-width:var(--maxw);
+    }
+    .logo{font-weight:700;letter-spacing:.4px}
+    .nav-links{display:flex;gap:28px;list-style:none;margin:0}
+    .nav-links a{opacity:.85;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
+    .nav-links a:hover{opacity:1}
+
+    /* --------- Hero (黑底巨幅标语) --------- */
+    .hero{
+      min-height:100svh;display:grid;place-items:center;
+      padding:120px 24px 96px;background:radial-gradient(1200px 600px at 70% -10%, #111 0%, #000 60%);
+      border-bottom:1px solid var(--line);
+    }
+    .hero-wrap{max-width:980px;text-align:center}
+    .kicker{
+      font-size:12px;text-transform:uppercase;letter-spacing:.24em;
+      color:var(--muted);margin-bottom:14px
+    }
+    .hero-title{
+      font-weight:300;letter-spacing:-.03em;line-height:.95;
+      font-size:clamp(44px,8vw,96px);margin:0 0 18px
+    }
+    .hero-sub{font-size:clamp(16px,2.4vw,22px);color:#cfcfcf;margin-bottom:40px}
+    .cta{
+      display:inline-flex;align-items:center;gap:12px;
+      border:1px solid var(--accent);color:var(--fg);
+      padding:14px 22px;border-radius:999px;font-weight:600;
+      transition:transform .2s ease,background .2s ease,opacity .2s ease;
+    }
+    .cta:hover{transform:translateY(-2px);background:#111}
+
+    /* --------- Split Feature Cards (明暗分区) --------- */
+    .products{
+      background:#0a0a0a;padding:0;margin:0;border-bottom:1px solid var(--line);
+    }
+    .grid-2{
+      display:grid;grid-template-columns:1fr 1fr;min-height:80svh;
+    }
+    .card{
+      padding:88px 56px;display:flex;flex-direction:column;justify-content:center;gap:18px;
+      border-right:1px solid var(--line);
+    }
+    .card:last-child{border-right:0}
+    .card--dark{background:#0a0a0a;color:#fff}
+    .card--light{background:#fff;color:#000}
+    .card .eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;opacity:.6}
+    .card h3{font-weight:300;font-size:36px;letter-spacing:-.02em;margin:6px 0 2px}
+    .card p{opacity:.75;max-width:520px}
+    .card .link{border-bottom:1px solid currentColor;align-self:flex-start;margin-top:6px}
+
+    /* --------- Section shells --------- */
+    section{scroll-margin-top:84px}
+    .shell{
+      max-width:var(--maxw);margin:0 auto;padding:110px 24px;border-bottom:1px solid var(--line);
+    }
+    .title{
+      font-weight:300;font-size:42px;letter-spacing:-.02em;margin:0 0 18px
+    }
+    .lead{color:#d6d7db;max-width:900px;margin:0 0 36px}
+
+    /* --------- About (浅色反转块) --------- */
+    .about{
+      background:#fff;color:#000;
+    }
+    .about .lead{color:#555}
+    .feature-grid{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+      gap:18px;
+    }
+    .feature{
+      background:#f5f6f7;border:1px solid #eaecf0;border-radius:18px;padding:22px 20px;
+    }
+    .feature h4{margin:0 0 8px;font-size:18px}
+    .feature ul{margin:0;padding-left:18px;color:#555}
+    .feature li{margin:6px 0}
+
+    /* --------- Business (深色参数分条) --------- */
+    .cols{
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:22px
+    }
+    .block{
+      background:rgba(255,255,255,.04);border:1px solid var(--line);
+      border-radius:20px;padding:28px
+    }
+    .block h5{margin:0 0 12px;font-size:16px;letter-spacing:.12em;text-transform:uppercase;color:#e6e8eb}
+    .block ul{margin:0;padding-left:18px;color:#d3d5d7}
+    .block li{margin:8px 0}
+
+    /* --------- Culture (明暗交错) --------- */
+    .culture-grid{
+      display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:20px;overflow:hidden
+    }
+    .c-item{padding:64px 48px}
+    .c-item:nth-child(odd){background:#0d0d0e}
+    .c-item:nth-child(even){background:#fff;color:#000}
+    .c-item h4{margin:0 0 12px}
+    .c-item p{margin:0;color:inherit;opacity:.85}
+
+    /* --------- Careers (浅色参数卡片) --------- */
+    .careers{background:#fff;color:#000}
+    .jobs{display:grid;gap:18px;margin-top:22px}
+    .job{
+      background:#fff;border:1px solid #eaecf0;border-radius:18px;padding:22px
+    }
+    .job h5{margin:0 0 6px;font-size:18px}
+    .meta{font-size:13px;color:#6b7280;margin-bottom:10px}
+
+    /* --------- Contact / Footer --------- */
+    .contact .mail{
+      display:inline-block;margin-top:16px;border-bottom:1px solid currentColor
+    }
+    footer{border-top:1px solid var(--line);padding:28px 24px;color:#9aa0a6;text-align:center}
+
+    /* --------- Motion --------- */
+    .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.show{opacity:1;transform:none}
+
+    /* --------- Responsive --------- */
+    @media (max-width:1024px){
+      .grid-2{grid-template-columns:1fr}
+      .card{min-height:60svh;border-right:0;border-bottom:1px solid var(--line)}
+      .card:last-child{border-bottom:0}
+    }
+    @media (max-width:768px){
+      .nav-links{display:none}
+      .hero{padding:110px 20px 80px}
+      .shell{padding:80px 20px}
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <a href="#" class="logo">零界演化</a>
-            <ul class="nav-links">
-                <li><a href="#about">关于</a></li>
-                <li><a href="#business">业务</a></li>
-                <li><a href="#culture">文化</a></li>
-                <li><a href="#careers">招聘</a></li>
-                <li><a href="#contact">联系</a></li>
-            </ul>
-        </nav>
-    </header>
+  <!-- Header -->
+  <header>
+    <nav>
+      <a class="logo" href="#">零界演化</a>
+      <ul class="nav-links">
+        <li><a href="#about">关于</a></li>
+        <li><a href="#business">业务</a></li>
+        <li><a href="#culture">文化</a></li>
+        <li><a href="#careers">招聘</a></li>
+        <li><a href="#contact">联系</a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section class="hero">
-        <div class="hero-content">
-            <h1 class="hero-title">在这里<br>超越边界</h1>
-            <h2 class="hero-subtitle">零界演化</h2>
-            <p class="hero-description">
-                以区块链、智能合约、Shapley Value公平分配机制为基础的开放组织。<br>
-                构建AI原生涌现组织模型，推动人类智慧与人工智能的深度融合。
-            </p>
-            <a href="#about" class="learn-more-btn">了解更多</a>
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-wrap reveal">
+      <div class="kicker">SingularityX Evolution</div>
+      <h1 class="hero-title">Reality meets Intelligence</h1>
+      <p class="hero-sub">零界演化 · 自生成 / 自博弈 / 自演化的 AI 交易与协作系统</p>
+      <a class="cta" href="#business">了解我们的系统</a>
+    </div>
+  </section>
+
+  <!-- Split Products (明/暗分区 + 短句卖点) -->
+  <section class="products">
+    <div class="grid-2">
+      <div class="card card--dark reveal">
+        <span class="eyebrow">AI-Native Organization</span>
+        <h3>AI 原生组织</h3>
+        <p>“人—机—市场”三元博弈的自演化系统体，作为技术奇点时代的组织基础设施。</p>
+        <a class="link" href="#about">详细了解</a>
+      </div>
+      <div class="card card--light reveal">
+        <span class="eyebrow">Intelligent Trading</span>
+        <h3>智能量化系统</h3>
+        <p>聚焦 <strong>智能体 × 策略 × 资本</strong> 的融合，面向衍生品、大宗商品、数字资产与 RWA 落地。</p>
+        <a class="link" href="#business">探索业务</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About（浅色反转块，保留原结构要点） -->
+  <section id="about" class="about">
+    <div class="shell">
+      <h2 class="title reveal">关于我们</h2>
+      <p class="lead reveal">
+        零界演化科技有限公司（SingularityX Evolution）诞生于杭州，并在香港与新加坡设有公司。
+        我们专注“人工智能 × 金融科技 × 区块链”的交叉创新，打造具备自生成、自博弈、自演化能力的原生 AI 交易系统，推动全球金融与产业治理的智能化变革。
+      </p>
+
+      <div class="feature-grid">
+        <article class="feature reveal">
+          <h4>品牌由来</h4>
+          <ul>
+            <li><strong>Singularity</strong>：AI 技术奇点的象征</li>
+            <li><strong>X</strong>：探索未知、突破边界</li>
+            <li><strong>Evolution</strong>：智能体的持续进化与演化</li>
+          </ul>
+        </article>
+
+        <article class="feature reveal">
+          <h4>技术与成果</h4>
+          <ul>
+            <li><strong>AlphaTrader-Evolve / Zero</strong>：具备自演化特征并已实盘应用的智能交易平台</li>
+            <li>率先在金融衍生品、大宗商品、数字资产与 RWA 领域落地</li>
+            <li>以区块链与 Shapley Value 探索价值衡量与分配新模式</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Business（深色分条 + 参数式要点） -->
+  <section id="business">
+    <div class="shell">
+      <h2 class="title reveal">业务介绍</h2>
+      <p class="lead reveal">
+        我们构建从研究、策略到执行与风控的一体化能力，持续迭代 <strong>AlphaTrader-Evolve / Zero</strong>，服务多场景实盘。
+      </p>
+
+      <div class="cols">
+        <div class="block reveal">
+          <h5>团队实力</h5>
+          <ul>
+            <li>来自全球知名高校与科技企业的专家团队，兼具算法研发与金融实战经验；</li>
+            <li>依托 <strong>13 家产业关联企业</strong>，覆盖能源矿产、大宗商品贸易与咖啡全产业链；</li>
+            <li>形成 <strong>实体产业 × 数字金融 × 智能系统</strong> 的协同优势，支撑高频引擎、智能体博弈与量化风控等能力迭代。</li>
+          </ul>
         </div>
-    </section>
 
-    <section class="products-section">
-        <div class="products-grid">
-            <div class="product-card">
-                <h3 class="product-title">AI原生组织</h3>
-                <p class="product-subtitle">自学习·自进化·自组织</p>
-                <p class="product-description">
-                    构建"人—机—市场"三元智能博弈的自演化系统体，打造技术奇点时代的基础设施平台。
-                </p>
-                <a href="#about" class="product-link">详细了解</a>
-            </div>
-            
-            <div class="product-card">
-                <h3 class="product-title">智能量化系统</h3>
-                <p class="product-subtitle">策略×资本×技术</p>
-                <p class="product-description">
-                    专注自演化人工智能系统与智能量化交易平台，构建"智能体×策略×资本"融合生态。
-                </p>
-                <a href="#business" class="product-link">探索业务</a>
-            </div>
+        <div class="block reveal">
+          <h5>机制与生态</h5>
+          <ul>
+            <li>① 借助区块链与 Shapley Value，将价值创造与分配透明化、程序化，支撑开放协作的产业与金融基础设施；</li>
+            <li>② 链上确权与激励，让真实贡献被量化并公平回报，打破传统组织边界；</li>
+            <li>③ 以可验证的贡献价值为依据分配收益，保障透明与高效激励。</li>
+          </ul>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="about" class="about-section">
-        <div class="about-content fade-in">
-            <h2 class="section-title">关于我们</h2>
-            <p class="about-text">
-                零界演化是一个以区块链、智能合约、Shapley Value公平分配机制为基础的开放组织。我们致力于构建AI原生涌现组织模型，打造"人—机—市场"三元智能博弈的自演化系统体，推动人类智慧与人工智能的深度融合。零界演化不仅是技术奇点时代的基础设施平台，更是推动智慧延续与跃迁的实践者。
-            </p>
-            
-            <div class="features-grid">
-                <div class="feature-item fade-in">
-                    <h3 class="feature-title">分布式智能协同</h3>
-                    <p class="feature-description">通过区块链底座，确保每一份真实贡献都能被量化和公平激励，打破传统组织边界。</p>
-                </div>
-                <div class="feature-item fade-in">
-                    <h3 class="feature-title">Shapley Value机制</h3>
-                    <p class="feature-description">采用智能合约 + Shapley Value分配机制，让贡献透明、分润公平、激励高效。</p>
-                </div>
-                <div class="feature-item fade-in">
-                    <h3 class="feature-title">涌现秩序</h3>
-                    <p class="feature-description">我们坚信效率不等于牺牲，智慧源于涌现秩序，构建自学习、自进化、自组织的生态。</p>
-                </div>
-            </div>
+  <!-- Culture（明暗交错的块状叙事） -->
+  <section id="culture">
+    <div class="shell">
+      <h2 class="title reveal">企业文化</h2>
+      <div class="culture-grid">
+        <div class="c-item reveal">
+          <h4>价值观</h4>
+          <p>效率不等于牺牲，智慧源于涌现秩序。以分布式协同与链上激励，公平量化每一份真实贡献。</p>
         </div>
-    </section>
-
-    <section id="business" class="business-section">
-        <div class="business-content fade-in">
-            <h2 class="section-title">业务介绍</h2>
-            <p class="about-text">
-                零界演化科技专注自演化人工智能系统与智能量化交易平台，致力于构建"智能体×策略×资本"融合生态，打造自我进化的金融科技超级系统。
-            </p>
-            
-            <div class="highlights-grid">
-                <div class="highlight-item fade-in">
-                    <h3 class="highlight-title">团队实力</h3>
-                    <p class="highlight-description">汇聚浙大、清华等高校人才，成员来自阿里、华为等前沿团队，具备10年以上金融衍生品及大宗商品交易经验，曾参与08奥运会项目开发。</p>
-                </div>
-                <div class="highlight-item fade-in">
-                    <h3 class="highlight-title">科研合作</h3>
-                    <p class="highlight-description">与知名大学共建联合实验室，深耕"智能体博弈演化系统""高频量化引擎"等前沿领域。</p>
-                </div>
-            </div>
+        <div class="c-item reveal">
+          <h4>使命</h4>
+          <p>构建能够自学习、自博弈、自演化的智能协同生态，推动技术与文明的共同演化。</p>
         </div>
-    </section>
-
-    <section id="culture" class="culture-section">
-        <div class="about-content fade-in">
-            <h2 class="section-title">企业文化</h2>
+        <div class="c-item reveal">
+          <h4>愿景</h4>
+          <p>成为全球领先的 AI 原生金融与协作系统平台，为技术奇点时代提供可落地的基础设施与开放生态。</p>
         </div>
-        
-        <div class="culture-grid">
-            <div class="culture-item fade-in">
-                <h3 class="culture-title">价值观</h3>
-                <p class="culture-description">我们坚信效率不等于牺牲，智慧源于涌现秩序。通过分布式智能协同 + 区块链底座，确保每一份真实贡献都能被量化和公平激励。</p>
-            </div>
-            
-            <div class="culture-item fade-in">
-                <h3 class="culture-title">使命</h3>
-                <p class="culture-description">构建一个能够自学习、自进化、自组织的智能协同生态，推动技术与文明的共同演化。</p>
-            </div>
-            
-            <div class="culture-item fade-in">
-                <h3 class="culture-title">愿景</h3>
-                <p class="culture-description">成为全球领先的AI原生金融与协作系统平台，为技术奇点时代提供可落地的基础设施和开放生态。</p>
-            </div>
-            
-            <div class="culture-item fade-in">
-                <h3 class="culture-title">协作机制</h3>
-                <p class="culture-description">打破传统组织边界，打造基于区块链的开放式协作生态。无论是否为公司正式成员，任何个体均可参与项目贡献，其工作成果将被链上确权。</p>
-            </div>
+        <div class="c-item reveal">
+          <h4>协作机制</h4>
+          <p>打破传统组织边界，构建开放式协作网络；成员与外部贡献者的成果均可在链上确权与收益分配。</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <section id="careers" class="jobs-section">
-        <div class="jobs-content">
-            <div class="about-content fade-in">
-                <h2 class="section-title">人才招聘</h2>
-                <p class="about-text">我们欢迎志同道合的伙伴加入，与顶尖的AI、量化交易系统和协同架构一同成长。</p>
-            </div>
-            
-            <div class="jobs-grid">
-                <div class="job-card fade-in">
-                    <h3 class="job-title">大模型量化算法工程师</h3>
-                    <p class="job-subtitle">Large Model Quantitative Algorithm Engineer</p>
-                    <p class="job-responsibility"><strong>职责：</strong>大模型量化策略设计与算法开发，利用大模型、多模态技术和强化学习推进AI投资与AIGC。</p>
-                    <p class="job-requirement"><strong>要求：</strong>熟悉大模型原理与应用，具备量化算法开发经验。</p>
-                </div>
-                
-                <div class="job-card fade-in">
-                    <h3 class="job-title">大模型金融数据研究员</h3>
-                    <p class="job-subtitle">Financial Data Researcher (Large Models)</p>
-                    <p class="job-responsibility"><strong>职责：</strong>利用大模型及相关工具，搭建金融时间序列数据库方案及智能workflow/agent。</p>
-                    <p class="job-requirement"><strong>要求：</strong>掌握大模型与数据建模方法，具备金融数据分析经验。</p>
-                </div>
-                
-                <div class="job-card fade-in">
-                    <h3 class="job-title">RL金融量化算法工程师</h3>
-                    <p class="job-subtitle">RL Quantitative Algorithm Engineer</p>
-                    <p class="job-responsibility"><strong>职责：</strong>持续优化开源强化学习量化模型，根据实际目标进行方案迭代。</p>
-                    <p class="job-requirement"><strong>要求：</strong>熟悉RL方法，能将算法应用于金融量化策略优化。</p>
-                </div>
-                
-                <div class="job-card fade-in">
-                    <h3 class="job-title">（实习）Agent RL算法研究员（LLM）</h3>
-                    <p class="job-subtitle">Research Intern (Agent RL & LLM)</p>
-                    <p class="job-responsibility"><strong>职责：</strong>开发融合文本、语音、图像多模态的智能体，研究智能体高效协作机制。</p>
-                    <p class="job-requirement"><strong>要求：</strong>有较强的科研能力，对多模态与RL技术有浓厚兴趣。</p>
-                </div>
-            </div>
+  <!-- Careers（浅色收束） -->
+  <section id="careers" class="careers">
+    <div class="shell">
+      <h2 class="title reveal">人才招聘</h2>
+      <p class="lead reveal">加入我们，与顶尖的 AI、量化交易系统与协同架构一同成长。</p>
 
-            <div class="about-content fade-in" style="margin-top: 80px;">
-                <h3 class="section-title" style="font-size: 36px;">福利待遇</h3>
-                <div class="benefits-grid">
-                    <div class="benefit-item">
-                        <h4 class="benefit-title">薪资待遇</h4>
-                        <p class="benefit-description">极具竞争力的年薪</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h4 class="benefit-title">住宿保障</h4>
-                        <p class="benefit-description">步行10分钟，独立空间</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h4 class="benefit-title">保险福利</h4>
-                        <p class="benefit-description">六险一金（含商业险）</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h4 class="benefit-title">工作时间</h4>
-                        <p class="benefit-description">周末双休，弹性工作制</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h4 class="benefit-title">生活补贴</h4>
-                        <p class="benefit-description">交通、餐饮、电话补贴</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h4 class="benefit-title">健康关怀</h4>
-                        <p class="benefit-description">定期体检、国内外旅游</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h4 class="benefit-title">发展机会</h4>
-                        <p class="benefit-description">海外深造机会</p>
-                    </div>
-                    <div class="benefit-item">
-                        <h4 class="benefit-title">活动福利</h4>
-                        <p class="benefit-description">丰富活动及节日福利</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+      <div class="jobs">
+        <article class="job reveal">
+          <h5>大模型量化算法工程师</h5>
+          <div class="meta">Large Model Quantitative Algorithm Engineer</div>
+          <p><strong>职责：</strong>策略设计与算法开发，利用多模态与强化学习推进 AI 投资与 AIGC。</p>
+          <p><strong>要求：</strong>理解大模型原理，具备量化算法经验。</p>
+        </article>
 
-    <section id="contact" class="contact-section">
-        <div class="contact-content fade-in">
-            <h2 class="section-title">联系我们</h2>
-            <p class="about-text">加入我们，共同探索人工智能与区块链的无限可能</p>
-            <a href="mailto:join@singularityx.tech" class="contact-email">join@singularityx.tech</a>
-        </div>
-    </section>
+        <article class="job reveal">
+          <h5>大模型金融数据研究员</h5>
+          <div class="meta">Financial Data Researcher (Large Models)</div>
+          <p><strong>职责：</strong>构建时间序列数据库方案与智能 workflow / agent。</p>
+          <p><strong>要求：</strong>掌握大模型与数据建模，熟悉金融数据分析。</p>
+        </article>
 
-    <footer>
-        <p>&copy; 2025 零界演化 (SingularityX Evolution). All rights reserved.</p>
-    </footer>
+        <article class="job reveal">
+          <h5>RL 金融量化算法工程师</h5>
+          <div class="meta">RL Quantitative Algorithm Engineer</div>
+          <p><strong>职责：</strong>迭代开源强化学习量化模型，面向真实目标优化。</p>
+          <p><strong>要求：</strong>熟悉 RL 方法并落地于量化策略。</p>
+        </article>
 
-    <script>
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
+        <article class="job reveal">
+          <h5>（实习）Agent RL 算法研究员（LLM）</h5>
+          <div class="meta">Research Intern (Agent RL & LLM)</div>
+          <p><strong>职责：</strong>开发多模态智能体，研究高效协作机制。</p>
+          <p><strong>要求：</strong>具备科研能力，热爱多模态与 RL 方向。</p>
+        </article>
+      </div>
+    </div>
+  </section>
 
-        // Fade in animations
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+  <!-- Contact -->
+  <section id="contact" class="contact">
+    <div class="shell">
+      <h2 class="title reveal">联系我们</h2>
+      <p class="lead reveal">加入我们，共同探索人工智能与区块链的无限可能。</p>
+      <a class="mail reveal" href="mailto:join@singularityx.tech">join@singularityx.tech</a>
+    </div>
+  </section>
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, observerOptions);
+  <footer>
+    <small>&copy; 2025 零界演化 (SingularityX Evolution). All rights reserved.</small>
+  </footer>
 
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
+  <script>
+    // 平滑滚动
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const id=a.getAttribute('href');
+        if(id.length>1){
+          e.preventDefault();
+          document.querySelector(id)?.scrollIntoView({behavior:'smooth',block:'start'});
+        }
+      });
+    });
 
-        // Header background on scroll
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.background = 'rgba(255, 255, 255, 0.98)';
-            } else {
-                header.style.background = 'rgba(255, 255, 255, 0.95)';
-            }
-        });
-    </script>
+    // 进场动画
+    const io=new IntersectionObserver(es=>{
+      es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');io.unobserve(e.target);}});
+    },{threshold:.12,rootMargin:'0px 0px -10% 0px'});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+    // 头部透明度微调
+    addEventListener('scroll',()=>{
+      const h=document.querySelector('header');
+      h.style.background=scrollY>80?'rgba(0,0,0,.78)':'rgba(0,0,0,.55)';
+    });
+  </script>
+
+  <!-- 依据原 index03.html 进行改造（仅追溯用，不影响渲染） -->
+  <!-- :contentReference[oaicite:0]{index=0} -->
+  <!-- :contentReference[oaicite:1]{index=1} -->
 </body>
 </html>

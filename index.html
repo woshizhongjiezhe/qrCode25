@@ -8,13 +8,10 @@
     /* --------- Reset & Base --------- */
     *,*::before,*::after{box-sizing:border-box}
     :root{
-      --bg:#000;           /* 主黑 */
-      --fg:#fff;           /* 主白 */
-      --muted:#9aa0a6;     /* 次级文字 */
+      --bg:#000;
+      --fg:#fff;
+      --muted:#9aa0a6;
       --line:rgba(255,255,255,.12);
-      --ink:#0f0f10;       /* 深黑 */
-      --paper:#f7f7f8;     /* 浅灰白 */
-      --accent:#ffffff;    /* 仅用于描边/hover */
       --maxw:1400px;
     }
     html,body{height:100%}
@@ -28,9 +25,9 @@
       text-rendering:optimizeLegibility;
     }
     a{color:inherit;text-decoration:none}
-    img{max-width:100%;display:block}
+    img{max-width:100%;display:block;margin:0 auto;}
 
-    /* --------- Header (极简固定) --------- */
+    /* --------- Header --------- */
     header{
       position:fixed;top:0;left:0;right:0;z-index:20;
       backdrop-filter:blur(14px);
@@ -46,19 +43,15 @@
     .nav-links a{opacity:.85;font-size:14px;letter-spacing:.14em;text-transform:uppercase}
     .nav-links a:hover{opacity:1}
 
-    /* --------- Hero (改为白底巨幅标语) --------- */
+    /* --------- Hero --------- */
     .hero{
       min-height:100svh;display:grid;place-items:center;
       padding:120px 24px 96px;
-      background:#fff;       /* 修改为白色背景 */
-      color:#000;            /* 文字改为黑色 */
+      background:#fff;
+      color:#000;
       border-bottom:1px solid #ddd;
     }
     .hero-wrap{max-width:980px;text-align:center}
-    .kicker{
-      font-size:12px;text-transform:uppercase;letter-spacing:.24em;
-      color:#666;margin-bottom:14px
-    }
     .hero-title{
       font-weight:300;letter-spacing:-.03em;line-height:.95;
       font-size:clamp(44px,8vw,96px);margin:0 0 18px
@@ -72,7 +65,7 @@
     }
     .cta:hover{transform:translateY(-2px);background:#f0f0f0}
 
-    /* --------- Split Feature Cards (明暗分区) --------- */
+    /* --------- Split Feature Cards --------- */
     .products{
       background:#0a0a0a;padding:0;margin:0;border-bottom:1px solid var(--line);
     }
@@ -82,13 +75,25 @@
     .card{
       padding:88px 56px;display:flex;flex-direction:column;justify-content:center;gap:18px;
       border-right:1px solid var(--line);
+      position:relative;
+      overflow:hidden;
+      z-index:0;
     }
     .card:last-child{border-right:0}
     .card--dark{background:#0a0a0a;color:#fff}
-    .card--light{background:#fff;color:#000}
+    .card--light{
+      color:#000;
+      background-image:
+        linear-gradient(90deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.88) 45%, rgba(255,255,255,.68) 100%),
+        url("智能量化.jpeg");
+      background-size:cover, cover;
+      background-position:center, center;
+      background-repeat:no-repeat, no-repeat;
+      background-attachment:scroll, scroll;
+    }
     .card .eyebrow{font-size:12px;letter-spacing:.24em;text-transform:uppercase;opacity:.6}
     .card h3{font-weight:300;font-size:36px;letter-spacing:-.02em;margin:6px 0 2px}
-    .card p{opacity:.75;max-width:520px}
+    .card p{opacity:.85;max-width:520px}
     .card .link{border-bottom:1px solid currentColor;align-self:flex-start;margin-top:6px}
 
     /* --------- Section shells --------- */
@@ -101,10 +106,8 @@
     }
     .lead{color:#d6d7db;max-width:900px;margin:0 0 36px}
 
-    /* --------- About (浅色反转块) --------- */
-    .about{
-      background:#fff;color:#000;
-    }
+    /* --------- About --------- */
+    .about{background:#fff;color:#000;}
     .about .lead{color:#555}
     .feature-grid{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
@@ -117,7 +120,7 @@
     .feature ul{margin:0;padding-left:18px;color:#555}
     .feature li{margin:6px 0}
 
-    /* --------- Business (深色参数分条) --------- */
+    /* --------- Business --------- */
     .cols{
       display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:22px;margin-top:22px
     }
@@ -129,7 +132,7 @@
     .block ul{margin:0;padding-left:18px;color:#d3d5d7}
     .block li{margin:8px 0}
 
-    /* --------- Culture (明暗交错) --------- */
+    /* --------- Culture --------- */
     .culture-grid{
       display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:20px;overflow:hidden
     }
@@ -139,8 +142,32 @@
     .c-item h4{margin:0 0 12px}
     .c-item p{margin:0;color:inherit;opacity:.85}
 
-    /* --------- Careers (浅色参数卡片) --------- */
-    .careers{background:#fff;color:#000}
+    /* --------- Careers --------- */
+    .careers{
+      position:relative;
+      color:#000;
+      background:#fff;
+      z-index:0;
+    }
+    .careers::before{
+      content:"";
+      position:absolute;
+      top:0; left:0; right:0;
+      height:35%;  /* 背景图只覆盖上半部分 */
+      background-image: url("AI.jpg"), url("AI.jpeg");
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      filter: blur(6px);
+      transform: scale(1.06);
+      z-index:-1;
+    }
+    .careers::after{
+      content:"";
+      position:absolute; inset:0;
+      background: rgba(255,255,255,.40); /* 半透明遮罩 */
+      z-index:-1;
+    }
     .jobs{display:grid;gap:18px;margin-top:22px}
     .job{
       background:#fff;border:1px solid #eaecf0;border-radius:18px;padding:22px
@@ -163,6 +190,11 @@
       .grid-2{grid-template-columns:1fr}
       .card{min-height:60svh;border-right:0;border-bottom:1px solid var(--line)}
       .card:last-child{border-bottom:0}
+      .card--light{
+        background-image:
+          linear-gradient(180deg, rgba(255,255,255,.94) 0%, rgba(255,255,255,.82) 50%, rgba(255,255,255,.64) 100%),
+          url("智能量化.jpeg");
+      }
     }
     @media (max-width:768px){
       .nav-links{display:none}
@@ -189,14 +221,14 @@
   <!-- Hero -->
   <section class="hero">
     <div class="hero-wrap reveal">
-      <div class="kicker">SingularityX Evolution</div>
+      <img src="白底.jpg" alt="SingularityX Logo" style="max-width:320px;margin-bottom:6px;">
       <h1 class="hero-title">Reality meets Intelligence</h1>
       <p class="hero-sub">零界演化 · 自生成 / 自博弈 / 自演化的 AI 交易与协作系统</p>
       <a class="cta" href="#business">了解我们的系统</a>
     </div>
   </section>
 
-  <!-- Split Products (明/暗分区 + 短句卖点) -->
+  <!-- Split Products -->
   <section class="products">
     <div class="grid-2">
       <div class="card card--dark reveal">
@@ -214,7 +246,7 @@
     </div>
   </section>
 
-  <!-- About（浅色反转块，保留原结构要点） -->
+  <!-- About -->
   <section id="about" class="about">
     <div class="shell">
       <h2 class="title reveal">关于我们</h2>
@@ -222,7 +254,6 @@
         零界演化科技有限公司（SingularityX Evolution）诞生于杭州，并在香港与新加坡设有公司。
         我们专注“人工智能 × 金融科技 × 区块链”的交叉创新，打造具备自生成、自博弈、自演化能力的原生 AI 交易系统，推动全球金融与产业治理的智能化变革。
       </p>
-
       <div class="feature-grid">
         <article class="feature reveal">
           <h4>品牌由来</h4>
@@ -232,7 +263,6 @@
             <li><strong>Evolution</strong>：智能体的持续进化与演化</li>
           </ul>
         </article>
-
         <article class="feature reveal">
           <h4>技术与成果</h4>
           <ul>
@@ -245,37 +275,36 @@
     </div>
   </section>
 
-  <!-- Business（深色分条 + 参数式要点） -->
+  <!-- Business -->
   <section id="business">
     <div class="shell">
       <h2 class="title reveal">业务介绍</h2>
       <p class="lead reveal">
         我们构建从研究、策略到执行与风控的一体化能力，持续迭代 <strong>AlphaTrader-Evolve / Zero</strong>，服务多场景实盘。
       </p>
-
       <div class="cols">
         <div class="block reveal">
           <h5>团队实力</h5>
           <ul>
             <li>来自全球知名高校与科技企业的专家团队，兼具算法研发与金融实战经验；</li>
+            <li>新加坡成立，S2E LABS PTE. LTD.  S2E LABS 人工智能，区块链，数字货币实验室；</li>
             <li>依托 <strong>13 家产业关联企业</strong>，覆盖能源矿产、大宗商品贸易与咖啡全产业链；</li>
             <li>形成 <strong>实体产业 × 数字金融 × 智能系统</strong> 的协同优势，支撑高频引擎、智能体博弈与量化风控等能力迭代。</li>
           </ul>
         </div>
-
         <div class="block reveal">
           <h5>机制与生态</h5>
           <ul>
-            <li>① 借助区块链与 Shapley Value，将价值创造与分配透明化、程序化，支撑开放协作的产业与金融基础设施；</li>
-            <li>② 链上确权与激励，让真实贡献被量化并公平回报，打破传统组织边界；</li>
-            <li>③ 以可验证的贡献价值为依据分配收益，保障透明与高效激励。</li>
+            <li>借助区块链与 Shapley Value，将价值创造与分配透明化、程序化，支撑开放协作的产业与金融基础设施；</li>
+            <li>链上确权与激励，让真实贡献被量化并公平回报，打破传统组织边界；</li>
+            <li>以可验证的贡献价值为依据分配收益，保障透明与高效激励。</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Culture（明暗交错的块状叙事） -->
+  <!-- Culture -->
   <section id="culture">
     <div class="shell">
       <h2 class="title reveal">企业文化</h2>
@@ -300,7 +329,7 @@
     </div>
   </section>
 
-  <!-- Careers（浅色收束） -->
+  <!-- Careers -->
   <section id="careers" class="careers">
     <div class="shell">
       <h2 class="title reveal">人才招聘</h2>
@@ -375,9 +404,5 @@
       h.style.background=scrollY>80?'rgba(0,0,0,.78)':'rgba(0,0,0,.55)';
     });
   </script>
-
-  <!-- 依据原 index03.html 进行改造（仅追溯用，不影响渲染） -->
-  <!-- :contentReference[oaicite:0]{index=0} -->
-  <!-- :contentReference[oaicite:1]{index=1} -->
 </body>
 </html>

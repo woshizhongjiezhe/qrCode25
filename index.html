@@ -185,6 +185,57 @@
     .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
     .reveal.show{opacity:1;transform:none}
 
+    /* --------- 新增内容的 CSS --------- */
+    .methodology {
+      background: #f5f6f7; /* 复用 .feature 的背景色 */
+      border: 1px solid #eaecf0; /* 复用 .feature 的边框 */
+      border-radius: 18px; /* 复用 .feature 的圆角 */
+      padding: 32px 36px;
+      margin: 48px auto 42px; /* 在上下增加一些间距 */
+      max-width: 900px; /* 匹配 .lead 段落的宽度 */
+    }
+    .methodology .intro,
+    .methodology .conclusion {
+      font-size: 18px;
+      line-height: 1.7;
+      text-align: center;
+      color: #333;
+      margin-bottom: 0;
+    }
+    .methodology .intro {
+      font-weight: 500;
+      margin-top: 0;
+    }
+    .methodology .conclusion {
+      font-weight: 600; /* 突出显示 */
+      margin-top: 24px;
+    }
+    .methodology .equation {
+      margin: 24px 0 0;
+      padding: 22px;
+      background: #fff; /* 用白色背景突出方程式 */
+      border: 1px solid #ddd;
+      border-radius: 12px;
+    }
+    .methodology .equation h5 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      letter-spacing: .05em;
+      text-transform: uppercase;
+      color: #000;
+      font-weight: 600;
+    }
+    .methodology .equation p {
+      margin: 0;
+      font-size: 17px;
+      color: #111;
+      line-height: 1.6;
+    }
+    .methodology .equation p strong {
+      color: #000; /* 突出显示结果 */
+    }
+    /* ------------------------------ */
+
     /* --------- Responsive --------- */
     @media (max-width:1024px){
       .grid-2{grid-template-columns:1fr}
@@ -208,7 +259,6 @@
   </style>
 </head>
 <body>
-  <!-- Header -->
   <header>
     <nav>
       <a class="logo" href="#">零界演化</a>
@@ -222,7 +272,6 @@
     </nav>
   </header>
 
-  <!-- Hero -->
   <section class="hero">
     <div class="hero-wrap reveal">
       <img src="白底.jpg" alt="SingularityX Logo" style="max-width:320px;margin-bottom:6px;">
@@ -232,7 +281,6 @@
     </div>
   </section>
 
-  <!-- Split Products -->
   <section class="products">
     <div class="grid-2">
       <div class="card card--dark reveal">
@@ -250,7 +298,6 @@
     </div>
   </section>
 
-  <!-- About -->
   <section id="about" class="about">
     <div class="shell">
       <h2 class="title reveal">关于我们</h2>
@@ -258,6 +305,22 @@
         零界演化科技有限公司（SingularityX Evolution）诞生于杭州，并在香港与新加坡设有公司，构建覆盖中国与东南亚的国际化格局。
         我们专注“人工智能 × 金融科技 × 区块链”的交叉创新，正在打造具备自生成、自博弈、自演化能力的原生人工智能交易系统，引领全球金融与产业治理的智能化变革。
       </p>
+
+      <div class="methodology reveal">
+        <p class="intro">零界演化科技正在用人工智能重塑交易逻辑</p>
+        
+        <div class="equation">
+          <h5>我们的方程式：</h5>
+          <p>(多智能体系统 × 演化博弈 × 强化学习) + 真实产业数据 = <strong>自演化智能交易系统</strong></p>
+        </div>
+        
+        <div class="equation">
+          <h5>我们的解法：</h5>
+          <p>区块链 + Shapley Value + 智能合约 = <strong>透明与自治的价值分配机制</strong></p>
+        </div>
+        
+        <p class="conclusion">让智能体与人类，共同参与价值的创造与进化</p>
+      </div>
       <div class="feature-grid">
         <article class="feature reveal">
           <h4>品牌由来</h4>
@@ -280,7 +343,6 @@
     </div>
   </section>
 
-  <!-- Business -->
   <section id="business">
     <div class="shell">
       <h2 class="title reveal">业务介绍</h2>
@@ -309,7 +371,6 @@
     </div>
   </section>
 
-  <!-- Culture -->
   <section id="culture">
     <div class="shell">
       <h2 class="title reveal">企业文化</h2>
@@ -334,7 +395,6 @@
     </div>
   </section>
 
-  <!-- Careers -->
   <section id="careers" class="careers">
     <div class="shell">
       <h2 class="title reveal">人才招聘</h2>
@@ -370,14 +430,12 @@
         </article>
       </div>
       
-      <!-- 新增福利待遇说明 -->
       <p class="lead reveal" style="margin-top:30px; font-size:17px; font-weight:600; color:#333;">
         福利待遇：底薪+提成+年终奖+六险一金+弹性工作制+各种补贴+体检+节日福利等
       </p>
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="contact">
     <div class="shell">
       <h2 class="title reveal">联系我们</h2>

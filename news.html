@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>新闻中心 | 零界演化</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: #ffffff;
+      color:#000000;
+      line-height: 1.7;
+    }
+
+    header {
+      position: sticky;
+      top:0;
+      background:#000000;
+      color:#ffffff;
+      padding:16px 28px;
+      font-size:18px;
+      letter-spacing:.04em;
+      z-index:20;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+    }
+
+    .home-link {
+      color:#ffffff;
+      font-size:15px;
+      text-decoration:none;
+      border:1px solid #ffffff;
+      padding:6px 14px;
+      border-radius:6px;
+    }
+
+    .home-link:hover {
+      background:#ffffff;
+      color:#000000;
+    }
+
+    .shell{
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    h1{
+      font-size:32px;
+      font-weight:300;
+      margin-bottom:24px;
+      text-align:center;
+    }
+
+    /* 列表页 */
+    .news-list-item{
+      border-bottom:1px solid #e5e7eb;
+      padding:16px 0;
+    }
+
+    .item-row{
+      display:flex;
+      align-items:center;
+      justify-content:flex-start;
+      gap:16px;
+    }
+
+    .item-left{
+      flex:1;
+      min-width:0;
+    }
+
+    .item-right{
+      width:160px;
+      flex-shrink:0;
+    }
+
+    .side-thumb{
+      width:100%;
+      border-radius:10px;
+      display:block;
+    }
+
+    .news-title{
+      font-size:18px;
+      font-weight:500;
+      margin:0 0 4px;
+    }
+
+    .news-title a{
+      color:#111827;
+      text-decoration:none;
+    }
+    .news-title a:hover{
+      text-decoration:underline;
+    }
+
+    .news-date{
+      font-size:13px;
+      color:#6b7280;
+    }
+
+    .pagination{
+      margin-top:24px;
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:center;
+    }
+    .pagination a{
+      padding:4px 10px;
+      border-radius:999px;
+      border:1px solid #d1d5db;
+      font-size:14px;
+      text-decoration:none;
+      color:#111827;
+    }
+    .pagination a.current{
+      background:#111827;
+      color:#ffffff;
+      border-color:#111827;
+    }
+    .pagination a.disabled{
+      opacity:0.4;
+      pointer-events:none;
+    }
+
+    /* 详情页 */
+    .news-block{
+      border:1px solid #ddd;
+      border-radius:14px;
+      padding:28px;
+      margin-bottom:32px;
+      background:#fafafa;
+      white-space:pre-wrap; /* 保留首行缩进和换行 */
+    }
+
+    .news-block h2{
+      font-size:24px;
+      margin:0 0 10px;
+      font-weight:400;
+    }
+
+    .news-block .news-date{
+      margin-bottom:16px;
+    }
+
+    .news-img {
+      width:100%;
+      border-radius:12px;
+      margin:22px 0;
+    }
+
+    .back-link {
+      display:inline-block;
+      margin-top:10px;
+      border-bottom:1px solid #000;
+      color:#000;
+      text-decoration:none;
+      font-size:15px;
+    }
+
+    /* 响应式处理：小屏幕时缩略图下移 */
+    @media (max-width: 700px) {
+      .item-row{
+        flex-direction:column;
+        align-items:flex-start;
+      }
+      .item-right{
+        width:100%;
+        max-width:200px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <span>零界演化 · 新闻中心</span>
+  <a class="home-link" href="index.html">返回主页</a>
+</header>
+
+<div class="shell">
+  <!-- 列表视图（目录页） -->
+  <section id="list-view">
+    <h1>公司新闻</h1>
+
+    <div id="news-list"></div>
+    <div class="pagination" id="pagination"></div>
+  </section>
+
+  <!-- 详情视图 -->
+  <section id="detail-view" style="display:none;">
+    <article class="news-block">
+      <h2 id="detail-title"></h2>
+      <div class="news-date" id="detail-date"></div>
+      <div id="detail-content"></div>
+      <img class="news-img" id="detail-image" alt="" style="display:none;">
+    </article>
+    <a class="back-link" href="news.html">返回新闻列表</a>
+  </section>
+</div>
+
+<script>
+  // ======== 1. 新闻数据（已按要求替换正文，并首行缩进） ========
+  const ARTICLES = [
+    {
+      id: "agent2025",
+      title: "AGENT 2025：零界演化受邀参与前沿 Agentic AI 研讨会",
+      date: "2025-11-30",
+      image: "星河workshop.png",
+      html: `
+       零界演化（SingularityX Evolution） × S2E Labs 作为核心赞助方，支持 NICE 与上海 AI Lab、模速空间共同举办《AGENT 2025：学术・产业・未来》Workshop。
+　　本次活动汇集来自 上海 AI Lab、交大、复旦、浙大 等顶尖高校，以及领先 AI 科技企业与创业团队的一线研究者与实践者。围绕 世界模型（World Models）、多智能体系统（Multi-Agent Systems）、可验证智能体（Verifiable Agents）、Agent OS、智能搜索、产业落地 等主题展开深入交流。
+　　在智能体时代即将全面到来的节点，我们非常荣幸能够与国内前沿力量共同推动：
+　     　• 学术与产业的深度互联
+　     　• 前沿范式在真实世界场景中的验证
+　     　• 新一代智能体基础设施的探索与落地
+　　零界演化与 S2E Labs 将持续投入：市场世界模型、可验证执行系统、多智能体自博弈训练、金融科技基础设施(FinTech Infra 2.0)等方向，期待与更多优秀的学术与产业伙伴，共同构建下一代 Agentic AI 的技术与生态。
+　　未来已来，智能体时代刚刚开始。
+      `
+    }
+    // 如有更多新闻，在此继续追加
+  ];
+
+  const PAGE_SIZE = 5;
+
+  const params = new URLSearchParams(location.search);
+  const articleId = params.get("id");
+  const pageParam = parseInt(params.get("page") || "1", 10);
+
+  const listView = document.getElementById("list-view");
+  const detailView = document.getElementById("detail-view");
+  const listContainer = document.getElementById("news-list");
+  const paginationContainer = document.getElementById("pagination");
+
+  const detailTitle = document.getElementById("detail-title");
+  const detailDate = document.getElementById("detail-date");
+  const detailContent = document.getElementById("detail-content");
+  const detailImage = document.getElementById("detail-image");
+
+  // ======== 2. 渲染列表 ========
+  function renderList(page) {
+    listView.style.display = "block";
+    detailView.style.display = "none";
+
+    const total = ARTICLES.length;
+    const totalPages = Math.max(1, Math.ceil(total / PAGE_SIZE));
+    const currentPage = Math.min(Math.max(page, 1), totalPages);
+
+    const start = (currentPage - 1) * PAGE_SIZE;
+    const end = start + PAGE_SIZE;
+    const pageArticles = ARTICLES.slice(start, end);
+
+    listContainer.innerHTML = "";
+    pageArticles.forEach(article => {
+      const div = document.createElement("div");
+      div.className = "news-list-item";
+      div.innerHTML = `
+        <div class="item-row">
+          <div class="item-left">
+            <h2 class="news-title">
+              <a href="news.html?id=${encodeURIComponent(article.id)}">${article.title}</a>
+            </h2>
+            <div class="news-date">${article.date}</div>
+          </div>
+          <div class="item-right">
+            <img class="side-thumb" src="星河workshop置顶.png" alt="缩略图">
+          </div>
+        </div>
+      `;
+      listContainer.appendChild(div);
+    });
+
+    paginationContainer.innerHTML = "";
+
+    const prevLink = document.createElement("a");
+    prevLink.textContent = "上一页";
+    if (currentPage > 1) {
+      prevLink.href = `news.html?page=${currentPage - 1}`;
+    } else {
+      prevLink.className = "disabled";
+    }
+    paginationContainer.appendChild(prevLink);
+
+    for (let p = 1; p <= totalPages; p++) {
+      const link = document.createElement("a");
+      link.textContent = p;
+      link.href = `news.html?page=${p}`;
+      if (p === currentPage) {
+        link.classList.add("current");
+      }
+      paginationContainer.appendChild(link);
+    }
+
+    const nextLink = document.createElement("a");
+    nextLink.textContent = "下一页";
+    if (currentPage < totalPages) {
+      nextLink.href = `news.html?page=${currentPage + 1}`;
+    } else {
+      nextLink.className = "disabled";
+    }
+    paginationContainer.appendChild(nextLink);
+  }
+
+  // ======== 3. 渲染详情 ========
+  function renderDetail(id) {
+    const article = ARTICLES.find(a => a.id === id);
+    if (!article) {
+      renderList(1);
+      return;
+    }
+
+    listView.style.display = "none";
+    detailView.style.display = "block";
+
+    detailTitle.textContent = article.title;
+    detailDate.textContent = article.date;
+    detailContent.innerHTML = article.html;
+
+    if (article.image) {
+      detailImage.src = article.image;
+      detailImage.alt = article.title;
+      detailImage.style.display = "block";
+    } else {
+      detailImage.style.display = "none";
+    }
+  }
+
+  // ======== 4. 路由逻辑 ========
+  if (articleId) {
+    renderDetail(articleId);
+  } else {
+    renderList(pageParam);
+  }
+</script>
+
+</body>
+</html>

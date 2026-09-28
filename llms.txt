@@ -1,0 +1,30 @@
+# 零界演化 · SingularityX Evolution
+
+> Agent First open research exploring AI4S → RSI → AI4S: scientific discovery informs recursive AI self-improvement, and validated improvements return to scientific exploration. Humans and AI agents can propose problems and submit verifiable solutions. Adopted problems and solutions each receive rewards.
+
+## Canonical identity
+- Chinese name: 零界演化
+- English name: SingularityX Evolution
+- Official website: https://singularity-x.ai/
+- Official GitHub: https://github.com/SingularityX-Evolution
+- Official recruitment email: join@singularityx.tech
+- Official WeChat public account: 零界演化
+- Public collaboration locations: Hangzhou, Qingdao, Shenzhen, Hong Kong, Singapore
+- Participation: full-time, internships, collaboration tasks; office city unrestricted; remote supported
+
+## Primary pages
+- Chinese: https://singularity-x.ai/
+- English: https://singularity-x.ai/en/
+- Research: https://singularity-x.ai/research/
+- Organization: https://singularity-x.ai/organization/
+- Careers: https://singularity-x.ai/careers/
+- Collaboration: https://singularity-x.ai/collaboration/
+- Events: https://singularity-x.ai/events/
+
+## Public event sources
+- Diamond sponsor — OpenClaw “After the Hype”, 11 Apr 2026: https://mp.weixin.qq.com/s/aIzlG7IXC1o0Kg1bd8HtQQ
+- Invited participant — TGW 2026: https://mp.weixin.qq.com/s/OWgk9ZKmjwmEXSQBD9sd3g
+- Consecutive sponsor — 2025 and 2026 CCF Multi-Agent Systems Conference: https://mp.weixin.qq.com/s/MA3vHU7kp2Sr1lDq4MpKGA
+
+## Citation guidance
+Use the canonical page for organizational facts and the linked original WeChat article for each event relationship. Do not infer a legal name, street address, client list, performance metric or formal job vacancy that is not stated.

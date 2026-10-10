@@ -4,7 +4,7 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
-/assets/site.095702ab.css
+/assets/site.8c6948ea.css
   Cache-Control: public, max-age=31536000, immutable
 /assets/site.7a19c2.js
   Cache-Control: public, max-age=31536000, immutable

@@ -4,7 +4,7 @@
   Permissions-Policy: camera=(), microphone=(), geolocation=(), interest-cohort=()
   Content-Security-Policy: default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; upgrade-insecure-requests
 
-/assets/site.c8e42d.css
+/assets/site.095702ab.css
   Cache-Control: public, max-age=31536000, immutable
 /assets/site.7a19c2.js
   Cache-Control: public, max-age=31536000, immutable
@@ -26,4 +26,10 @@
   Content-Type: application/manifest+json; charset=utf-8
 
 /assets/agent-first.5f47a7eb.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/introduction.62570e86.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/home-layout.c7b8845f.css
   Cache-Control: public, max-age=31536000, immutable

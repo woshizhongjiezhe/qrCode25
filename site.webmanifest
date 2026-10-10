@@ -1,6 +1,6 @@
 {
-  "name": "零界演化 · SingularityX Evolution",
-  "short_name": "SingularityX",
+  "name": "零界演化",
+  "short_name": "零界演化",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fbfbf9",
@@ -16,5 +16,6 @@
       "sizes": "512x512",
       "type": "image/png"
     }
-  ]
+  ],
+  "description": "以 AI4S → RSI → AI4S 为研究路径，从金融智能决策出发，探索多智能体协作与自演化，构建贡献可验证、分配可解释的人机开放协同组织。"
 }

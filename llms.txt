@@ -1,6 +1,6 @@
 # 零界演化
 
-> Following AI4S → RSI → AI4S, we start with intelligent financial decision-making to explore multi-agent collaboration and self-evolution, and an open human–AI organization with verifiable contributions and explainable allocation.
+> SingularityX Evolution follows AI4S → RSI → AI4S, starting with intelligent financial decision-making to explore multi-agent collaboration and self-evolution, alongside an open human–AI organization with verifiable contributions and explainable allocation.
 
 ## Canonical identity
 - Website name: 零界演化

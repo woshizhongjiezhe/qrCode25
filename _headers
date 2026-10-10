@@ -28,8 +28,11 @@
 /assets/agent-first.5f47a7eb.css
   Cache-Control: public, max-age=31536000, immutable
 
-/assets/introduction.62570e86.css
+/assets/introduction.505139d5.css
   Cache-Control: public, max-age=31536000, immutable
 
 /assets/home-layout.c7b8845f.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/collaboration-layout.e6c5b4a4.css
   Cache-Control: public, max-age=31536000, immutable

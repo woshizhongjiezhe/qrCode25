@@ -17,6 +17,7 @@
 - Motto: AGENT FIRST
 - Research path: AI4S → RSI → AI4S
 - Starting point: intelligent financial decision systems
+- Technical approaches: world models, multi-agent mechanisms, reinforcement learning, evolutionary dynamics and other methods are candidates for exploration. Technical approaches, system architectures and evolution processes will be revised based on research progress and reproducible experimental evidence.
 - Organization: exploring open human–AI collaboration, verifiable contributions, value assessment, explainable allocation and an appeals process
 - Autonomy: paired with independent validation, AI red teaming and defense, traceable decisions and risk control
 - Long-term interests: scientific research, humans and AI learning together, and AI–neuroscience intersections

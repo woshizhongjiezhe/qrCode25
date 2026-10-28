@@ -36,3 +36,9 @@
 
 /assets/collaboration-layout.e6c5b4a4.css
   Cache-Control: public, max-age=31536000, immutable
+
+/assets/events-layout.676a8fde.css
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/s2e-content.d0f820e1.css
+  Cache-Control: public, max-age=31536000, immutable

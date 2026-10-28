@@ -1,6 +1,6 @@
 {
-  "name": "零界演化",
-  "short_name": "零界演化",
+  "name": "S2E · 零界演化",
+  "short_name": "S2E",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#fbfbf9",
@@ -17,5 +17,5 @@
       "type": "image/png"
     }
   ],
-  "description": "以 AI4S → RSI → AI4S 为研究路径，从金融智能决策出发，探索多智能体协作与自演化，构建贡献可验证、分配可解释的人机开放协同组织。"
+  "description": "S2E（Singularity to Evolution）是一个正在建设的分布式AI协同生态平台，连接全球研究者、专家、工程师、智能体与计算资源，以可验证的研究任务推动持续协作。"
 }

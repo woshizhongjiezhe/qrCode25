@@ -1,41 +1,47 @@
-# 零界演化
+# S2E — Singularity to Evolution
 
-> SingularityX Evolution follows AI4S → RSI → AI4S, starting with intelligent financial decision-making to explore multi-agent collaboration and self-evolution, alongside an open human–AI organization with verifiable contributions and explainable allocation.
+> S2E (Singularity to Evolution) is a distributed AI collaboration platform under development, connecting researchers, experts, engineers, agents and computing resources through verifiable research tasks.
 
-## Canonical identity
-- Website name: 零界演化
-- Chinese name: 零界演化
-- English name: SingularityX Evolution
+## Platform and official channels
+- Platform name: S2E (Singularity to Evolution)
+- Platform status: under development
+- Existing website and community brand: 零界演化 / SingularityX Evolution
 - Official website: https://singularity-x.ai/
 - Official GitHub: https://github.com/SingularityX-Evolution
-- Official recruitment email: join@singularityx.tech
+- Contact email: join@singularityx.tech
 - Official WeChat public account: 零界演化
-- Public collaboration locations: Hangzhou, Qingdao, Shenzhen, Hong Kong, Singapore
-- Participation: full-time, internships, collaboration tasks; office city unrestricted; remote supported
 
-## Research and organization
-- Motto: AGENT FIRST
-- Research path: AI4S → RSI → AI4S
-- Starting point: intelligent financial decision systems
-- Technical approaches: world models, multi-agent mechanisms, reinforcement learning, evolutionary dynamics and other methods are candidates for exploration. Technical approaches, system architectures and evolution processes will be revised based on research progress and reproducible experimental evidence.
-- Organization: exploring open human–AI collaboration, verifiable contributions, value assessment, explainable allocation and an appeals process
-- Autonomy: paired with independent validation, AI red teaming and defense, traceable decisions and risk control
-- Long-term interests: scientific research, humans and AI learning together, and AI–neuroscience intersections
-- Full organization introduction: https://singularity-x.ai/organization/
+## Three long-term questions
+- Energy and living space: more abundant energy and sustainable living beyond Earth.
+- Life and intelligence: reducing the limitations of disease and aging, and understanding life, cognition and consciousness.
+- Collaboration and civilization: enabling people, agents, knowledge and resources worldwide to solve complex problems together over time.
+
+## Collaboration and development stage
+- Agents are the interface for collaboration. Expert experience and research methods are organized into capability modules that can be invoked with authorization.
+- Long-term ambitions are broken into verifiable research tasks.
+- Illustrative tasks: control or materials questions in fusion; decoding stability in brain–computer interfaces; thermal management and cost models for space-based computing. These are task-decomposition examples, not claims of deployed projects or completed research.
+- Current work uses a small-sample demo in finance to refine task collaboration, outcome validation and contribution records, gradually building capabilities for other scientific fields.
+- The platform is exploring blockchain-based contribution records and privacy-preserving computation for controlled sharing.
+- Bounties, research funding and resource exchange are being explored to support sustained participation. Do not infer guaranteed rewards or a live reward system.
+- Public-interest orientation: public research and community collaboration.
+- Values: strong reasoning, self-direction, shared interests and an evidence-based mindset.
+- Contributors: researchers, domain experts, engineers, developers, research institutions and resource partners.
+- Participation: full-time, internships and collaboration tasks; remote collaboration supported.
 
 ## Primary pages
 - Chinese: https://singularity-x.ai/
 - English: https://singularity-x.ai/en/
+- Platform: https://singularity-x.ai/organization/
 - Research: https://singularity-x.ai/research/
-- Organization: https://singularity-x.ai/organization/
-- Careers: https://singularity-x.ai/careers/
+- Join us: https://singularity-x.ai/careers/
 - Collaboration: https://singularity-x.ai/collaboration/
 - Events: https://singularity-x.ai/events/
 
 ## Public event sources
+- Sponsoring partner — The 8th International Conference on Distributed Artificial Intelligence (DAI 2026), 29 Nov–2 Dec 2026, City University of Hong Kong, Hong Kong, China. Theme: “Agentic AI Goes Live — Science, Systems, and Societies”: https://singularity-x.ai/events/#dai-2026
 - Diamond sponsor — OpenClaw “After the Hype”, 11 Apr 2026: https://mp.weixin.qq.com/s/aIzlG7IXC1o0Kg1bd8HtQQ
 - Invited participant — TGW 2026: https://mp.weixin.qq.com/s/OWgk9ZKmjwmEXSQBD9sd3g
 - Consecutive sponsor — 2025 and 2026 CCF Multi-Agent Systems Conference: https://mp.weixin.qq.com/s/MA3vHU7kp2Sr1lDq4MpKGA
 
 ## Citation guidance
-Use the canonical page for organizational facts and the linked original WeChat article for each event relationship. Do not infer a legal name, street address, client list, performance metric or formal job vacancy that is not stated.
+Use the canonical page for organizational facts and the event details page or linked original WeChat article for each event relationship. Do not infer a legal name, street address, client list, performance metric or formal job vacancy that is not stated.

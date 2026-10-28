@@ -1,0 +1,165 @@
+/* Homepage calls to action and compact research/community panels. */
+.evo-home #main .home-hero .cta-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: .8rem;
+  width: min(100%, 42rem);
+}
+.evo-home #main .home-hero .cta-row .button {
+  width: 100%;
+  min-width: 0;
+  text-align: center;
+  white-space: normal;
+}
+.evo-home #main .section-head .home-section-intro {
+  margin: 0;
+  max-width: 56rem;
+  line-height: 1.8;
+}
+.evo-home #main .home-stage-section,
+.evo-home #main .home-community-section {
+  padding-block: clamp(2.75rem, 4.5vw, 4rem);
+}
+.evo-home #main .home-focus-head {
+  display: block;
+  margin-bottom: 1.75rem;
+}
+.evo-home #main .home-focus-head > .kicker {
+  margin: 0 0 .65rem;
+  font-size: .75rem;
+  letter-spacing: .14em;
+}
+.evo-home #main .home-focus-head .s2e-section-title {
+  margin-bottom: .7rem;
+}
+.evo-home #main .home-demo-panel {
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid #d8ded6;
+  border-radius: 18px;
+  background: #fff;
+}
+.evo-home #main .home-demo-grid {
+  display: grid;
+  grid-template-columns: minmax(0, .85fr) minmax(0, 1.4fr);
+  gap: clamp(1.5rem, 4vw, 3rem);
+}
+.evo-home #main .home-demo-summary {
+  min-width: 0;
+  padding-right: clamp(1.25rem, 3vw, 2.5rem);
+  border-right: 1px solid var(--line);
+}
+.evo-home #main .home-stage-badge {
+  display: inline-flex;
+  margin-bottom: 1rem;
+  padding: .3rem .65rem;
+  border-radius: 999px;
+  background: #edf2e9;
+  color: #465b42;
+  font-size: .78rem;
+  font-weight: 650;
+}
+.evo-home #main .home-demo-panel .s2e-card-title,
+.evo-home #main .home-community-card .s2e-card-title {
+  margin: 0 0 .55rem;
+}
+.evo-home #main .home-demo-panel p,
+.evo-home #main .home-community-card p {
+  margin: 0;
+  color: #4b514c;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.evo-home #main .home-demo-steps {
+  display: grid;
+  gap: 1.1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.evo-home #main .home-demo-step {
+  display: grid;
+  grid-template-columns: 2.2rem minmax(0, 1fr);
+  gap: .85rem;
+  padding-bottom: 1.1rem;
+  border-bottom: 1px solid var(--line);
+}
+.evo-home #main .home-demo-step:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+.evo-home #main .home-step-number {
+  display: grid;
+  place-items: center;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 9px;
+  background: #f0f3ed;
+  color: #526753;
+  font: 650 .8rem/1 ui-monospace, monospace;
+}
+.evo-home #main .home-demo-next {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 1.6rem;
+  padding-top: 1.4rem;
+  border-top: 1px solid var(--line);
+}
+.evo-home #main .home-demo-next > div { min-width: 0; }
+.evo-home #main .home-demo-next .evo-text-link { flex-shrink: 0; }
+.evo-home #main .home-community-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.15rem;
+}
+.evo-home #main .home-community-card {
+  min-width: 0;
+  padding: 1.5rem;
+  border: 1px solid #e0e5db;
+  border-radius: 16px;
+  background: #f7f8f5;
+}
+.evo-home #main .home-community-card::before {
+  content: "";
+  display: block;
+  width: 2rem;
+  height: 3px;
+  margin-bottom: 1rem;
+  background: #667d5d;
+}
+.evo-home #main .home-community-contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1.6rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+.evo-home #main .home-community-contact > p {
+  flex: 1 1 32rem;
+  margin: 0;
+  color: #4b514c;
+  font-size: 1rem;
+  line-height: 1.8;
+}
+.evo-home #main .home-community-contact .cta-row {
+  flex: 0 0 auto;
+  margin: 0;
+}
+@media (max-width: 900px) {
+  .evo-home #main .home-demo-grid { grid-template-columns: minmax(0, .9fr) minmax(0, 1.25fr); gap: 1.5rem; }
+  .evo-home #main .home-demo-summary { padding-right: 1.5rem; }
+  .evo-home #main .home-community-contact { align-items: flex-start; flex-direction: column; gap: 1rem; }
+  .evo-home #main .home-community-contact > p { flex-basis: auto; }
+}
+@media (max-width: 650px) {
+  .evo-home #main .home-hero .cta-row { grid-template-columns: minmax(0, 1fr); width: min(100%, 24rem); }
+  .evo-home #main .home-demo-grid,
+  .evo-home #main .home-community-grid { grid-template-columns: minmax(0, 1fr); }
+  .evo-home #main .home-demo-summary { padding: 0 0 1.35rem; border-right: 0; border-bottom: 1px solid var(--line); }
+  .evo-home #main .home-demo-next { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .evo-home #main .home-community-contact .cta-row { display: grid; grid-template-columns: minmax(0, 1fr); width: 100%; }
+  .evo-home #main .home-community-contact .button { width: 100%; white-space: normal; text-align: center; }
+}
